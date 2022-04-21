@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: cursive;
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(133deg, #eb5ef5, #2439f1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box-center {
+        width: 16rem;
+        height: 23rem;
+        background: rgba(255, 255, 255, 0.28);
+        border-radius: 23px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 25px rgb(0 0 0 / 10%);
+        position: relative;
+    }
+
+    .box-center svg {
+        margin: auto;
+        margin-top: 3rem;
+    }
+
+    .box-center svg circle {
+        fill: none;
+    }
+
+    .box-center svg .circle1 {
+        stroke-width: 20px;
+        stroke-dashoffset: 0;
+        stroke: #0e0e0e14;
+    }
+
+    .box-center svg .circle2 {
+        stroke: url(#GradientColor);
+        stroke-width: 20px;
+        stroke-dasharray: 472;
+        stroke-dashoffset: 472;
+        animation: ciele 2s linear forwards;
+    }
+
+    @keyframes ciele {
+        100% {
+            stroke-dashoffset: 165;
+        }
+    }
+
+    .box-center #number {
+        position: absolute;
+        top: 113px;
+        font-size: 26px;
+        font-weight: 600;
+        color: #000000b3;
+    }
+
+    .box-center .page-reload {
+        position: absolute;
+        bottom: 3rem;
+        border: none;
+        border-radius: 23px;
+        padding: 13px;
+        font-size: larger;
+        color: #000000;
+        background: #3ddbe0;
+        cursor: pointer;
+        box-shadow: 13px 13px 20px #00000026;
+    }
+
+</style>
+<body>
+    <div class="box-center">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+            <defs>
+                <linearGradient id="GradientColor">
+                    <stop offset="0%" stop-color="#ff2cdf" />
+                    <stop offset="100%" stop-color="#0014ff" />
+                </linearGradient>
+            </defs>
+            <circle cx="80" cy="80" r="70" stroke-linecap="round" class="circle1" />
+            <circle cx="80" cy="80" r="70" stroke-linecap="round" class="circle2" />
+        </svg>
+        <div id="number">0%</div>
+        <button class="page-reload" onclick="location.reload();">
+            Work in progress
+        </button>
+    </div>
+</body>
+
+<script>
+    const numbs = document.querySelector("#number");
+    let conter = 0;
+    setInterval(() => {
+        if (conter == 65) {
+            clearInterval();
+        } else {
+            conter += 1;
+            numbs.textContent = conter + "%";
+        }
+    }, 30);
+</script>
+
+</html> 
